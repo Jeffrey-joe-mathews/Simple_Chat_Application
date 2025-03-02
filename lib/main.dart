@@ -1,0 +1,25 @@
+import 'package:flutter/material.dart';
+import 'package:simple_chat_app/auth/login_or_register.dart';
+import 'package:simple_chat_app/pages/register_page.dart';
+import 'package:simple_chat_app/themes/light_mode.dart';
+import 'package:simple_chat_app/pages/login_page.dart';
+
+
+void main() {
+  runApp(const MyApp());
+}
+
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      // home: LoginPage(),
+      // home: RegisterPage(),
+      home: LoginOrRegister(),
+      theme: lightMode,
+    );
+  }
+}
