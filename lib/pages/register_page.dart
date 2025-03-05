@@ -20,8 +20,8 @@ class RegisterPage extends StatelessWidget {
     if(_passwdController.text == _confirmPasswdController.text) {
       try {
         // get auth service
-        final _authService = AuthService();
-        _authService.signUpWithEmailPassword(_emailController.text, _passwdController.text);
+        final authService = AuthService();
+        authService.signUpWithEmailPassword(_emailController.text, _passwdController.text);
       }
       catch (e) {
         showDialog(context: context, builder:(context) => AlertDialog(
@@ -34,6 +34,7 @@ class RegisterPage extends StatelessWidget {
     // passwords dont match
     else {
       showDialog(context: context, builder:(context) => const AlertDialog(
+        icon: Icon(Icons.dangerous_outlined),
         title: Text("Passwords Don't Match"),
       ),);
     }

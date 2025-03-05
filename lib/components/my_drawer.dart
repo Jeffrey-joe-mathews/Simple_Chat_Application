@@ -45,6 +45,7 @@ class MyDrawer extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.only(left: 25),
                 child: ListTile(
+                  // const because the text does not change and flutter can enhance performance by not reloading the widhet everytime
                   title: const Text("S E T T I N G S"),
                   leading: const Icon(Icons.settings),
                   onTap: () => {

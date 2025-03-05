@@ -1,9 +1,12 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
 class ChatService {
 
   // get insrtance of firestore
   final FirebaseFirestore _firestore = FirebaseFirestore.instance;
+  // get inbstance of firebase auth
+  final FirebaseAuth _auth = FirebaseAuth.instance;
 
   // get user stream
   /*
@@ -28,7 +31,7 @@ class ChatService {
         // go through each individual user
         final user = doc.data();
 
-        // return user
+        // return user of type<Map, dynamic>
         return user;
       }).toList(); 
     });
@@ -36,6 +39,21 @@ class ChatService {
 
 
   // send message
+  Future<void> sendMessage(String recieverId, message) async {
+    // get current user info
+    final String currentUserID = _auth.currentUser!.uid;
+    final String currentUserEmail = _auth.currentUser!.email!;
+    final Timestamp timeStamp = Timestamp.now();
+
+
+    // create a new message
+
+    
+    //construct a chat room id for the two users (sorted to ensure uniqueness)
+    
+
+    // add message to the database
+  }
 
 
   // get messages
