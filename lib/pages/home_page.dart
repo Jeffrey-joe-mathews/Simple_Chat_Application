@@ -54,7 +54,7 @@ class HomePage extends StatelessWidget {
    if(userData["email"] != _authService.getCurrentUser()!.email) {
      return UserTile(text: userData["email"], onTap:() {
       // go to chat page of the particular user
-      Navigator.push(context, MaterialPageRoute(builder: (context) => ChatPage(recieverEmail: userData["email"],),));
+      Navigator.push(context, MaterialPageRoute(builder: (context) => ChatPage(recieverEmail: userData["email"], recieverID: userData["uid"],),));
     });
    }
    else {
