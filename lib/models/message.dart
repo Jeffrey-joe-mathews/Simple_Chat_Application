@@ -15,7 +15,7 @@ class Message {
       'senderID':senderID,
       'senderEmail':senderEmail,
       'recieverID':recieverID,
-      'messsage' : message,
+      'message' : message,
       'timestamp' : timestamp,
     };
   }

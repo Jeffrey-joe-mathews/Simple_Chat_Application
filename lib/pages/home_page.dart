@@ -29,7 +29,7 @@ class HomePage extends StatelessWidget {
 
   // build a list of all users except the onmes that are currently logged in
   Widget _buildUserList() {
-    return StreamBuilder(stream: _chatService.getUsersStream(), builder:(context, snapshot) {
+    return StreamBuilder<List<Map<String, dynamic>>>(stream: _chatService.getUsersStream(), builder:(context, snapshot) {
       // error 
       if(snapshot.hasError) {
         return const Text("Error");

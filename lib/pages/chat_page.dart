@@ -20,7 +20,9 @@ class ChatPage extends StatelessWidget {
   void sendMessage() async {
     // if anyone tries to send a message 
     if(_messageController.text.isNotEmpty) {
-      await _chatService.sendMessage(recieverID, _messageController.text);
+      String message = _messageController.text;
+      print("the message is : $message");
+      await _chatService.sendMessage(recieverID, message);
 
       // clear the controller meanwhile
       _messageController.clear();
@@ -48,7 +50,7 @@ class ChatPage extends StatelessWidget {
   // build message list
   Widget _buildMessageList() {
     String senderID = _authService.getCurrentUser()!.uid;
-    return StreamBuilder(stream: _chatService.getMessages(recieverID, senderID), builder:(context, snapshot) {
+    return StreamBuilder<QuerySnapshot>(stream: _chatService.getMessages(recieverID, senderID), builder:(context, snapshot) {
       // errors 
       if(snapshot.hasError) {
         return const Text("Error");
@@ -72,8 +74,8 @@ class ChatPage extends StatelessWidget {
   Widget _buildMessageItem(DocumentSnapshot doc) {
     Map<String, dynamic> data = doc.data() as Map<String, dynamic>;
 
-    print(data);
-    return Text(data["message"]??"No message");
+    print("Document data : $data");
+    return Text(data["message"]??"nO meSSAAGE");
   }
 
   // build message input
