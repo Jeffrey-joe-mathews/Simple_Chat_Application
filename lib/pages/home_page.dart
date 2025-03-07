@@ -19,7 +19,10 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Home"),
+        backgroundColor: Colors.transparent,
+        foregroundColor: Theme.of(context).colorScheme.tertiary,
+        elevation: 0,
+        title: const Text("Home", textAlign: TextAlign.center,),
       ),
       drawer: const MyDrawer(
       ),
